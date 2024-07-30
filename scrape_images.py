@@ -20,11 +20,11 @@ def fetch_images(query, num_images=10):
     return image_urls
 
 if __name__ == '__main__':
-    user_input = 'dall-e'
+    user_input = 'unique generated images'
     if os.path.exists('images.json'):
         os.remove('images.json')
     
-    images = fetch_images(user_input, 10)  # Fetch 15 images related to 'ai'
+    images = fetch_images(user_input, 9)  # Fetch 15 images related to 'ai'
     with open('images.json', 'w') as file:
         json.dump(images, file)
     

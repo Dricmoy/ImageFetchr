@@ -2,8 +2,8 @@
 body {
     margin: 0;
     font-family: 'Roboto', Arial, sans-serif;
-    background: linear-gradient(to bottom right, #ffffff, #cccccc); /* White to gray gradient background */
-    color: #333; /* Darker text color for contrast */
+    background: linear-gradient(to bottom right, #000000, #000000); /* Dark to lighter gray gradient background */
+    color: #f0f0f0; /* Lighter text color for better readability on dark background */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,13 +14,13 @@ body {
 /* Navbar Styling */
 .navbar {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
-    color: #333; /* Dark text color for better contrast */
+    background-color: rgba(30, 30, 30, 0.8); /* Slightly transparent dark background */
+    color: #f0f0f0; /* Light text color for contrast */
     display: flex;
     justify-content: space-between; /* Space between items */
     align-items: center;
     padding: 10px 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for contrast */
     backdrop-filter: blur(10px); /* Blur effect for a modern look */
     position: fixed;
     top: 0;
@@ -28,13 +28,15 @@ body {
     right: 0;
     z-index: 1000;
     box-sizing: border-box;
+    height: 60px; /* Set height to fit within viewport */
+    overflow: hidden; /* Prevent overflow */
 }
 
 /* Ensure the content below the navbar does not get hidden or overflow */
 body::before {
     content: '';
     display: block;
-    height: 60px; /* Adjust to the height of your navbar */
+    height: 60px; /* Height of your navbar */
 }
 
 /* Navbar Content Styling */
@@ -57,13 +59,13 @@ body::before {
     font-size: 1.5em; /* Standard size for heading */
     font-weight: 600; /* Semibold */
     font-family: 'Georgia', serif; /* Serif font */
-    color: #333; /* Dark color for heading */
+    color: #f0f0f0; /* Light color for heading */
 }
 
 .tagline {
     margin-left: 20px; /* Space between heading and tagline */
     font-size: 1em;
-    color: #666; /* Slightly lighter gray for tagline */
+    color: #cccccc; /* Slightly lighter gray for tagline */
 }
 
 /* Navbar Right */
@@ -84,11 +86,11 @@ body::before {
     width: 100%;
     max-width: 250px; /* Limit width of search input */
     margin-right: 10px;
-    border: 2px solid #547bce; /* Blue border */
+    border: 2px solid #6a6a6a; /* Darker gray border */
     border-radius: 25px;
-    background-color: #ffffff; /* Light background for input */
-    color: #333; /* Dark text color */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #333; /* Dark background for input */
+    color: #f0f0f0; /* Light text color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -97,8 +99,8 @@ body::before {
 }
 
 #search-keyword:focus {
-    border-color: #3557b2; /* Darker blue on focus */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border-color: #8a8a8a; /* Lighter gray on focus */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     outline: none;
 }
 
@@ -106,23 +108,23 @@ body::before {
     padding: 8px 16px;
     font-size: 1em;
     cursor: pointer;
-    background: linear-gradient(45deg, #547bce, #3557b2); /* Blue-green gradient */
+    background: linear-gradient(45deg, #333, #444); /* Dark gradient */
     border: none;
     border-radius: 25px;
     color: #ffffff; /* White text color */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 #search-button:hover {
-    background: linear-gradient(45deg, #305dbd, #6797d5); /* Darker gradient on hover */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #222, #555); /* Darker gradient on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-2px);
 }
 
 #search-button:active {
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar Menu Styling */
@@ -132,7 +134,7 @@ body::before {
 }
 
 .navbar-menu a {
-    color: #333; /* Dark color for links */
+    color: #f0f0f0; /* Light color for links */
     text-decoration: none;
     font-size: 1em;
     font-weight: 500; /* Modern font weight */
@@ -140,25 +142,40 @@ body::before {
     border-bottom: 2px solid transparent; /* Underline effect */
 }
 
-.navbar-menu a:hover {
-    color: #007aff; /* Apple blue for hover effect */
-    border-bottom: 2px solid #007aff; /* Underline color on hover */
+/* Gallery Container */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Vertical scrolling */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(100vh - 60px); /* Full viewport height minus navbar height */
 }
 
 /* Gallery Layout */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-    gap: 10px; /* Space between items */
-    max-width: 90%;
-    margin: auto;
-    position: relative;
-    z-index: 1; /* Ensure gallery appears above background */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-auto-rows: 200px; /* Fixed row height */
+    gap: 15px; /* Space between items */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Ensure the gallery does not push content out of view */
-html, body {
-    height: 100%;
+/* Image Styling */
+.gallery img {
+    width: 100%; /* Full width of grid item */
+    height: 100%; /* Full height of grid item */
+    object-fit: cover; /* Cover the image area */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 /* Lightbox */
@@ -173,11 +190,21 @@ html, body {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    overflow: hidden;
 }
 
 .lightbox-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox-content img {
     max-width: 90%;
-    max-height: 80%;
+    max-height: 90%;
+    object-fit: contain; /* Preserve aspect ratio */
 }
 
 .close {
