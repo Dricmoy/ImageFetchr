@@ -20,7 +20,7 @@ def fetch_images(query, num_images=10):
     return image_urls
 
 if __name__ == '__main__':
-    user_input = 'trending'
+    user_input = 'dall-e'
     if os.path.exists('images.json'):
         os.remove('images.json')
     

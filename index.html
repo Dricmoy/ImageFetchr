@@ -8,11 +8,27 @@
 </head>
 
 <body>
-    <h1>Welcome, enter a keyword to get started</h1>
-    <div class="search-container">
-        <input type="text" id="search-keyword" placeholder="Enter keyword...">
-        <button id="search-button">Search</button>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-left">
+                <h1>Pics4you</h1>
+                <p class="tagline">An easy way to download images for your needs</p>
+            </div>
+            <div class="navbar-right">
+                <div class="search-container">
+                    <input type="text" id="search-keyword" placeholder="Enter keyword...">
+                    <button id="search-button">Search</button>
+                </div>
+                <div class="navbar-menu">
+                    <a href="#search">Search</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#about">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="gallery" id="gallery">
         <!-- Images will be inserted here by JavaScript -->
     </div>
